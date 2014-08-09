@@ -1,10 +1,7 @@
 module.exports = function(grunt) {
-  // grunt.initConfig({
-  //   pkg: grunt.file.readJSON('package.json'),
-
-  // });
-
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+
     jshint: {
       options: {
         curly: true,
@@ -15,16 +12,7 @@ module.exports = function(grunt) {
           jQuery: true
         },
       },
-      uses_defaults: ['dir1/**/*.js', 'dir2/**/*.js'],
-      with_overrides: {
-        options: {
-          curly: false,
-          undef: true,
-        },
-        files: {
-          src: ['dir3/**/*.js', 'dir4/**/*.js']
-        },
-      }
+      uses_defaults: ['*.js', 'scripts/**/*.js', ],
     },
   });
 
