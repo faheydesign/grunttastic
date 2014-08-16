@@ -1,9 +1,16 @@
+// add test mocha
+
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     clean: ['dist/'],
     browserify: {
-      'dist/js/bundle.js': ['js/main.js']
+      prod:{
+        'dist/js/bundle.js': ['app/js/main.js']
+      },
+      default:{
+        'app/js/bundle.js': ['app/js/main.js']
+      }
     },
     jshint: {
       // define the files to lint
@@ -33,5 +40,5 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('default', ['jshint', 'browserify']);
-  grunt.registerTask('build', ['jshint', 'clean', 'browserify', ]);
+  grunt.registerTask('prod', ['jshint', 'clean', 'browserify', ]);
 };
